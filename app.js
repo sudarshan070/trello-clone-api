@@ -4,7 +4,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost:27017/trello',
+mongoose.connect('mongodb+srv://sudarshan:sudarshan070@clustertrello.up4qm.mongodb.net/trelloUser?retryWrites=true&w=majority',
     { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false, useUnifiedTopology: true },
     (err) => {
         console.log("connected", err ? err : true)
