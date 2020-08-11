@@ -3,7 +3,7 @@ var router = express.Router();
 var User = require("../../models/users")
 var auth = require("../../middleware/auth")
 
-
+// Register user
 router.post("/", async (req, res, next) => {
   try {
     var user = await User.create(req.body.user)
@@ -21,7 +21,7 @@ router.post("/", async (req, res, next) => {
   }
 })
 
-
+// Login user
 router.post("/login", async (req, res, next) => {
   var { password, email } = req.body.user
   if (!email || !password) {
@@ -50,6 +50,22 @@ router.post("/login", async (req, res, next) => {
       email: user.email,
       name: user.name,
       token
+    })
+  } catch (error) {
+    next(error)
+  }
+})
+
+// Get current user
+router.get("/", auth.verifyToken, async (req, res, next) => {
+  try {
+    var user = await User.findById(req.user.userId)
+    res.json({
+      user: {
+        name: user.name,
+        username: user.username,
+        token: req.user.token
+      }
     })
   } catch (error) {
     next(error)
