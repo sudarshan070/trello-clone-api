@@ -60,10 +60,30 @@ router.post("/login", async (req, res, next) => {
 router.get("/", auth.verifyToken, async (req, res, next) => {
   try {
     var user = await User.findById(req.user.userId)
-    res.json({
+    res.status(201).json({
       user: {
         name: user.name,
         username: user.username,
+        token: req.user.token
+      }
+    })
+  } catch (error) {
+    next(error)
+  }
+})
+
+
+// update user
+router.put("/", auth.verifyToken, async (req, res, next) => {
+  try {
+    var user = await User.findByIdAndUpdate(req.user.userId, req.body.user, { new: true })
+    res.status(201).json({
+      user: {
+        email: user.email,
+        name: user.name,
+        username: user.username,
+        password: user.password,
+        bio: user.bio,
         token: req.user.token
       }
     })
