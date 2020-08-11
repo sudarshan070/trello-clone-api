@@ -32,14 +32,15 @@ router.post("/login", async (req, res, next) => {
   }
   try {
     var user = await User.findOne({ email })
-    console.log(user, "user is here")
     if (!user) {
       return res.status(400).json({
         success: false,
         error: "Email is wrong"
       })
     }
-    if (!user.verifyPassword(password) && !user.verifyPassword(password) == "") {
+    console.log(await user.verifyPassword(password), "user is here")
+    if (!await user.verifyPassword(password)) {
+
       return res.status(400).json({
         success: false,
         error: "Password is wrong"
