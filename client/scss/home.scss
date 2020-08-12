@@ -3,5 +3,26 @@
   background: linear-gradient(to right, #277ac0, #2879bf, #326cc3);
   img {
     width: 100%;
+    height: auto;
   }
+  .hero-heading {
+    padding-top: 1rem;
+    margin-right: 3rem;
+    line-height: 1.1;
+    color: #fff;
+  }
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-family: "Charlie Display", sans-serif;
+    font-weight: 500;
+  }
+  h6 {
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+}
+.img {
+  margin-left: 1rem;
 }
