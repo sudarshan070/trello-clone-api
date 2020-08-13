@@ -1,49 +1,32 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import { Route } from 'react-router-dom';
 import '../scss/index.scss';
-import { getCurrentUser, noToken } from '../actions'
 import "@material-ui/core"
 import "@material-ui/icons"
 import "@material-ui/styles"
 
-
-
 import HomePage from '../components/HomePage';
 import Header from '../components/Header';
+import SignUp from "../components/SignUp"
 
-class App extends Component {
-  state = {
-    token: ""
-  }
-
-  componentDidMount() {
-    var token = localStorage.getItem('authToken') || '';
-    if (token) {
-      this.setState({ token: token })
-      this.props.dispatch(getCurrentUser())
-    } else {
-      this.props.dispatch(noToken());
-    }
-  }
-
+class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={Home} />
+        <Route path="/signUp" component={SignUp} />
       </div >
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    currentUser: state.currentUser.user
-  }
-}
-
-export default connect(mapStateToProps)(App);
+const Home = () => (
+  <>
+    <Header />
+    <HomePage />
+  </>
+)
+export default App;
 
 
 

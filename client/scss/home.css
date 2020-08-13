@@ -11,9 +11,9 @@
 
 .hero .hero-heading {
   padding-top: 1rem;
-  margin-right: 3rem;
   line-height: 1.1;
   color: #fff;
+  padding-right: 2rem;
 }
 
 .hero h2 {
@@ -26,10 +26,70 @@
 .hero h6 {
   font-size: 1.6rem;
   font-weight: 300;
-  line-height: 1.4;
+  line-height: 1.5;
+  word-spacing: 3.5px;
 }
 
-.img {
-  margin-left: 1rem;
+.input {
+  -webkit-box-flex: 5;
+      -ms-flex-positive: 5;
+          flex-grow: 5;
+  min-width: 0;
+  width: 360px;
+  border-radius: 0.3rem;
+  line-height: 43px;
+  padding: 4px;
+  padding-left: 16px;
+  border-color: white;
+  border-style: solid;
+  font-size: 18px;
+}
+
+.btn-hero {
+  padding: 0.5rem 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: #fff;
+  background-color: #61bd4f;
+  border-color: #61bd4f;
+  border-radius: 0.3rem;
+  margin-left: 8px;
+}
+
+.hero-form {
+  padding: 1.2rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .hero .hero-heading {
+    padding: 0;
+  }
+  .hero h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .hero h6 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  .hero-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: 14px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .input {
+    display: none;
+  }
 }
 /*# sourceMappingURL=home.css.map */
