@@ -2,13 +2,13 @@ import React from "react";
 import Logo from "../images/trello-logo-blue.svg";
 import { NavLink } from "react-router-dom";
 
-export default class SignUp extends React.Component {
-  componentDidMount() {
-    fetch("/api/v1/users")
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  }
-  
+export default class SignUpSlug extends React.Component {
+//   componentDidMount() {
+//     fetch("/api/v1/users")
+//       .then((res) => res.json())
+//       .then((data) => console.log(data));
+//   }
+
   render() {
     return (
       <div className="signUp-form">
@@ -20,9 +20,19 @@ export default class SignUp extends React.Component {
             <div className="form-box">
               <h2>Sign up for your account</h2>
               <input
-                className="signUp-form-input"
+                className="signUp-form-input login-form-input"
                 type="email"
                 placeholder="email"
+              />
+              <input
+                className="signUp-form-input login-form-input"
+                type="text"
+                placeholder="Enter full name"
+              />
+              <input
+                className="signUp-form-input login-form-input"
+                type="password"
+                placeholder="Create password"
               />
               <p>
                 By signing up, you confirm that you've read and accepted our
@@ -30,18 +40,6 @@ export default class SignUp extends React.Component {
               </p>
               <button type="submit" className="form-btn ">
                 Continue
-              </button>
-              <div className="or">
-                <span>OR</span>
-              </div>
-              <button type="submit" className="form-btn auth-btn">
-                Login with Google
-              </button>
-              <button type="submit" className="form-btn auth-btn">
-                Continue with Microsoft
-              </button>
-              <button type="submit" className="form-btn auth-btn">
-                Continue with Apple
               </button>
               <hr />
               <div className="login-link">
@@ -52,7 +50,6 @@ export default class SignUp extends React.Component {
             </div>
           </div>
         </section>
-        <section></section>
       </div>
     );
   }

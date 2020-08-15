@@ -41,7 +41,7 @@ function HomePage() {
             </Grid>
             <div className="hero-form">
               <input className="input" type="text" placeholder="Email" />
-              <NavLink to="/signUp" className="btn-hero">Sign Up - It's Free!</NavLink>
+              <NavLink to="/register/slug" className="btn-hero">Sign Up - It's Free!</NavLink>
             </div>
           </Grid>
         </div>

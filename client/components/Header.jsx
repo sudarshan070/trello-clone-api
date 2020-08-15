@@ -14,7 +14,7 @@ export default class Header extends React.Component {
             <NavLink to="/login" className="text-white btn-sm">
               Log In
             </NavLink>
-            <NavLink to="/signUp" className="bg-white btn-sm text-blue">
+            <NavLink to="/signUp" className="bg-white btn-sm text-blue" exact>
               Sign Up
             </NavLink>
           </div>

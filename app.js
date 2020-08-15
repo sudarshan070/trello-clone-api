@@ -6,9 +6,9 @@ var logger = require('morgan');
 var helmet = require('helmet');
 var expressStaticGzip = require("express-static-gzip");
 var mongoose = require('mongoose');
+const indexRouter = require('./routes/index');
+var apiRouter = require('./routes/v1/index');
 
-var indexRouter = require('./routes/v1/index');
-var usersRouter = require('./routes/v1/users');
 
 var app = express();
 
@@ -44,10 +44,10 @@ mongoose.set('useNewUrlParser', true);
 
 // connect to mongodb
 mongoose.connect('mongodb+srv://sudarshan:sudarshan070@clustertrello.up4qm.mongodb.net/trelloUser?retryWrites=true&w=majority',
-    { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false, useUnifiedTopology: true },
-    (err) => {
-        console.log("connected", err ? err : true)
-    }
+  { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false, useUnifiedTopology: true },
+  (err) => {
+    console.log("connected", err ? err : true)
+  }
 )
 
 // webpack
@@ -67,17 +67,17 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Route handler
+app.use('/api/v1', apiRouter);
 app.use('/', indexRouter);
-app.use('/api/users', usersRouter);
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

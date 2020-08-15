@@ -3,6 +3,16 @@ var router = express.Router();
 var User = require("../../models/users")
 var auth = require("../../middleware/auth")
 
+
+router.get("/", async (req, res, next) => {
+  try {
+    var users = await User.find({})
+    res.json({users})
+  } catch (error) {
+    next(error)
+  }
+})
+
 // Register user
 router.post("/", async (req, res, next) => {
   try {

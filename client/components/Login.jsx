@@ -16,12 +16,12 @@ export default class Login extends React.Component {
               <input
                 className="signUp-form-input login-form-input"
                 type="email"
-                placeholder="Entre email"
+                placeholder="Enter email"
               />
-               <input
+              <input
                 className="signUp-form-input login-form-input"
-                type="passwords"
-                placeholder="Entre password"
+                type="password"
+                placeholder="Enter password"
               />
               <button type="submit" className="form-btn login-btn">
                 Log In
@@ -40,7 +40,9 @@ export default class Login extends React.Component {
               </button>
               <hr />
               <div className="login-link">
-                <NavLink className="signUp-link" to="/signUp">Can't log in? Sign up for an account</NavLink>
+                <NavLink className="signUp-link" to="/signUp">
+                  Can't log in? Sign up for an account
+                </NavLink>
               </div>
             </div>
           </div>
