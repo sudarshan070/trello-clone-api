@@ -4,6 +4,7 @@ import '../scss/index.scss';
 import "@material-ui/core"
 import "@material-ui/icons"
 import "@material-ui/styles"
+import "@babel/polyfill";
 import { Switch } from "react-router-dom"
 
 import HomePage from '../components/HomePage';
@@ -20,7 +21,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/signUp" component={SignUp} />
-          <Route path="/register/slug" component={SignUpSlug}/>
+          <Route path="/register/slug" component={SignUpSlug} />
           <Route path="/login" component={Login} />
         </Switch>
       </div >

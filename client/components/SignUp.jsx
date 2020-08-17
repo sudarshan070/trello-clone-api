@@ -3,11 +3,11 @@ import Logo from "../images/trello-logo-blue.svg";
 import { NavLink } from "react-router-dom";
 
 export default class SignUp extends React.Component {
-  componentDidMount() {
-    fetch("/api/v1/users")
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  }
+  // componentDidMount() {
+  //   fetch("/api/v1/users")
+  //     .then((res) => res.json())
+  //     .then((data) => console.log(data));
+  // }
   
   render() {
     return (
