@@ -8,14 +8,11 @@ const setTokenToAxios = (token) => {
   axios.defaults.headers.Authorization = newToken;
 }
 
-export const userSignUp = (data) => {
+export const userSignUp = (data, history) => {
   console.log(data, "data is here ")
-  try {
-    axios.post(`${rootUrl}/users`, data)
-      .then(res => console.log(res, 'response is here'))
-  } catch (error) {
-    console.log(error)
-  }
+  axios.post(`${rootUrl}/users`, data)
+    .then(res => console.log(res, 'response is here'))
+
 }
 
 
