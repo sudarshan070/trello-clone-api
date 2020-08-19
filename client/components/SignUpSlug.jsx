@@ -1,7 +1,9 @@
 import React from "react";
 import Logo from "../images/trello-logo-blue.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { userSignUp } from "../actions/index";
+import { connect } from "react-redux";
+import axios from "axios";
 
 class SignUpSlug extends React.Component {
   state = {
@@ -11,15 +13,18 @@ class SignUpSlug extends React.Component {
   };
 
   handleInput = (e) => {
-    e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(this.state.user, "this.state.user",);
-    var res = userSignUp({ user: this.state });
-    console.log(res, "res is res");
+  handleSubmit = () => {
+    console.log(this.state);
+    // axios
+    //   .post(`/api/v1/users`, { user: this.state })
+    //   .then((res) => this.props.history.push("/login"))
+    //   .catch((err) => console.log(err));
+    return this.props.dispatch(
+      userSignUp(this.state, this.props.history)
+    );
   };
 
   render() {
@@ -63,7 +68,7 @@ class SignUpSlug extends React.Component {
               </p>
               <button
                 type="submit"
-                onClick={(e) => this.handleSubmit(e)}
+                onClick={this.handleSubmit}
                 className="form-btn "
               >
                 Continue
@@ -82,4 +87,8 @@ class SignUpSlug extends React.Component {
   }
 }
 
-export default SignUpSlug;
+function mapState(state) {
+  return { currentUser: state.currentUser };
+}
+
+export default connect(mapState)(SignUpSlug);

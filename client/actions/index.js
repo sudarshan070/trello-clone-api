@@ -1,7 +1,7 @@
 import axios from 'axios';
 // import { response } from 'express';
 
-const rootUrl = 'http://localhost:3000/api/v1';
+// const rootUrl = 'http://localhost:3000/api/v1';
 
 const setTokenToAxios = (token) => {
   const newToken = localStorage.getItem('authToken') || '';
@@ -10,9 +10,11 @@ const setTokenToAxios = (token) => {
 
 export const userSignUp = (data, history) => {
   console.log(data, "data is here ")
-  axios.post(`${rootUrl}/users`, data)
-    .then(res => console.log(res, 'response is here'))
-
+  return function (dispatch) {
+    axios.post(`/api/v1/users`, { user: data }).then(res => {
+      history.push('/login')
+    }).catch(err => console.log(err))
+  }
 }
 
 
