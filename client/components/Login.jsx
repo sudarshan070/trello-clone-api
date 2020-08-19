@@ -1,9 +1,25 @@
 import React from "react";
 import Logo from "../images/trello-logo-blue.svg";
 import { NavLink } from "react-router-dom";
+import { userLogin } from "../actions";
+import { connect } from "react-redux";
 
-export default class Login extends React.Component {
+class Login extends React.Component {
+  state = {
+    email: "",
+    password: "",
+  };
+
+  handleInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSubmit = () => {
+    return this.props.dispatch(userLogin(this.state, this.props.history));
+  };
+
   render() {
+    const { email, password } = this.state;
     return (
       <div className="signUp-form">
         <section>
@@ -17,13 +33,23 @@ export default class Login extends React.Component {
                 className="signUp-form-input login-form-input"
                 type="email"
                 placeholder="Enter email"
+                value={email}
+                name="email"
+                onChange={(e) => this.handleInput(e)}
               />
               <input
                 className="signUp-form-input login-form-input"
                 type="password"
                 placeholder="Enter password"
+                value={password}
+                name="password"
+                onChange={(e) => this.handleInput(e)}
               />
-              <button type="submit" className="form-btn login-btn">
+              <button
+                onClick={this.handleSubmit}
+                type="submit"
+                className="form-btn login-btn"
+              >
                 Log In
               </button>
               <div className="or">
@@ -52,3 +78,9 @@ export default class Login extends React.Component {
     );
   }
 }
+
+function mapState(state) {
+  return { currentUser: state.currentUser };
+}
+
+export default connect(mapState)(Login);

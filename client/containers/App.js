@@ -6,15 +6,32 @@ import "@material-ui/icons"
 import "@material-ui/styles"
 import "@babel/polyfill";
 import { Switch } from "react-router-dom"
+import { connect } from 'react-redux'
 
 import HomePage from '../components/HomePage';
 import Header from '../components/Header';
 import SignUp from "../components/SignUp";
 import Login from "../components/Login";
 import SignUpSlug from '../components/SignUpSlug';
+import { getCurrentUser, noToken } from '../actions';
+
 
 
 class App extends React.Component {
+  state = {
+    token: ""
+  }
+
+  componentDidMount() {
+    var token = localStorage.getItem("authToken") || ""
+    if (token) {
+      this.setState({ token })
+      this.props.dispatch(getCurrentUser())
+    } else {
+      this.props.dispatch(noToken())
+    }
+  }
+
   render() {
     return (
       <div>
@@ -35,7 +52,11 @@ const Home = () => (
     <HomePage />
   </>
 )
-export default App;
+
+function mapState(state) {
+  return state
+}
+export default connect(mapState)(App);
 
 
 

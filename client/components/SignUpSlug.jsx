@@ -3,7 +3,6 @@ import Logo from "../images/trello-logo-blue.svg";
 import { NavLink, Link } from "react-router-dom";
 import { userSignUp } from "../actions/index";
 import { connect } from "react-redux";
-import axios from "axios";
 
 class SignUpSlug extends React.Component {
   state = {
@@ -17,14 +16,7 @@ class SignUpSlug extends React.Component {
   };
 
   handleSubmit = () => {
-    console.log(this.state);
-    // axios
-    //   .post(`/api/v1/users`, { user: this.state })
-    //   .then((res) => this.props.history.push("/login"))
-    //   .catch((err) => console.log(err));
-    return this.props.dispatch(
-      userSignUp(this.state, this.props.history)
-    );
+    return this.props.dispatch(userSignUp(this.state, this.props.history));
   };
 
   render() {

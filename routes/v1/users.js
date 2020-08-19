@@ -22,7 +22,6 @@ router.post("/", async (req, res, next) => {
       email: user.email,
       name: user.name,
       username: user.username,
-      password: user.password,
       bio: user.bio,
       token
     })
