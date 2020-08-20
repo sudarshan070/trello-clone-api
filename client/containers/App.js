@@ -13,6 +13,7 @@ import Header from '../components/Header';
 import SignUp from "../components/SignUp";
 import Login from "../components/Login";
 import SignUpSlug from '../components/SignUpSlug';
+import AuthHeader from "../components/AuthHeader"
 import { getCurrentUser, noToken } from '../actions';
 
 
@@ -36,17 +37,18 @@ class App extends React.Component {
     return (
       <div>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={NonAuthHome} />
           <Route path="/signUp" component={SignUp} />
           <Route path="/register/slug" component={SignUpSlug} />
           <Route path="/login" component={Login} />
+          <Route path="/auth" component={AuthHeader} />
         </Switch>
       </div >
     );
   }
 }
 
-const Home = () => (
+const NonAuthHome = () => (
   <>
     <Header />
     <HomePage />

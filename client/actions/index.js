@@ -24,7 +24,6 @@ export const userLogin = (data, history) => {
         type: USER_LOGIN_SUCCESS,
         payload: user.data
       }),
-        // console.log(user.data.token, "data.token"),
         localStorage.setItem('token', user.data.token),
         history.push('/'))
     })
