@@ -20,30 +20,43 @@ import { getCurrentUser, noToken } from '../actions';
 
 class App extends React.Component {
   state = {
-    token: ""
+    token: "",
   }
 
-  componentDidMount() {
-    var token = localStorage.getItem("authToken") || ""
+
+  verifyLogin = () => {
+    var token = localStorage.getItem("token") || ""
     if (token) {
-      this.setState({ token })
+      this.setState({ token: token })
       this.props.dispatch(getCurrentUser())
     } else {
       this.props.dispatch(noToken())
     }
   }
 
+  componentDidMount() {
+    this.verifyLogin()
+  }
+
+
   render() {
+    console.log(this.state.token, "app token");
+    const { token } = this.state
     return (
-      <div>
-        <Switch>
-          <Route exact path="/" component={NonAuthHome} />
-          <Route path="/signUp" component={SignUp} />
-          <Route path="/register/slug" component={SignUpSlug} />
-          <Route path="/login" component={Login} />
-          <Route path="/auth" component={AuthHeader} />
-        </Switch>
-      </div >
+      <Switch>
+        <>
+          {
+            token ?
+              <Route exact path="/" component={AuthHeader} /> :
+              <>
+                <Route exact path="/" component={NonAuthHome} />
+                <Route path="/signUp" component={SignUp} />
+                <Route path="/register/slug" component={SignUpSlug} />
+                <Route path="/login" component={Login} />
+              </>
+          }
+        </>
+      </Switch>
     );
   }
 }

@@ -35,9 +35,13 @@ function currentUser(state = initialState, action) {
     // default:
     //   return state;
     case USER_LOGIN_SUCCESS:
-      return {...state, user: action.payload}
-      default:
-        return state
+      return {
+        ...state,
+        user: action.payload,
+        isAuthInProgress: false
+      }
+    default:
+      return state
   }
 }
 
