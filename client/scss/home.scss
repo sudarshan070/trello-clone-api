@@ -78,4 +78,105 @@
       }
     }
   }
+  .authHomePage-link {
+    display: flex;
+    align-items: center;
+    color: #172b4d;
+    font-weight: 700;
+    margin: 0;
+    min-height: 20px;
+    overflow: hidden;
+    padding: 6px 8px 6px 0;
+    text-decoration: none;
+    font-size: 0.8rem;
+  }
+  .authHomePage-left-team {
+    margin-top: 0.5rem;
+    margin-bottom: 0.7rem;
+  }
+  .authHomePage-left-team-heading {
+    padding-left: 0.8rem;
+    h2 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      color: #5e6c84;
+    }
+  }
+  .authHomepage-p {
+    color: rgba(9, 30, 66, 0.66);
+  }
+  .authHeader-center-container {
+    margin-top: 40px;
+    padding-left: 45px;
+    width: 420px;
+  }
+  .authHeader-center-container-box {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
+    display: flex;
+    margin-bottom: 16px;
+    position: relative;
+    width: 100%;
+    flex-direction: column;
+  }
+  .authHeader-center-container-img {
+    background-color: #fdf4e7;
+    background-image: url(https://a.trellocdn.com/prgb/dist/images/home/orientation/no-content.e25c676458c1f4cb280b.svg);
+    height: 108px;
+  }
+  .center-img {
+    border-radius: 4px 4px 0 0;
+    min-height: 100px;
+    width: 100%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    flex: 0 0 auto;
+  }
+  .authHeader-center-container-text {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    padding: 16px;
+    width: 100%;
+    h3 {
+      text-align: center;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 24px;
+    }
+    p {
+      text-align: center;
+      font-size: 14px;
+      line-height: 20px;
+      margin: 10px 0;
+    }
+  }
+  .authHomepage-right {
+    margin-top: 40px;
+    max-width: 342px;
+    width: 100%;
+    padding-left: 50px;
+    .authHomePage-recently {
+      padding-bottom: 24px;
+      .authHomepage-p {
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+    }
+  }
+  .authHomePage-addBoard {
+    align-items: center;
+    display: flex;
+    height: 48px;
+  }
+
+  .authHomePage-hover:hover {
+    background: rgba(233, 233, 233, 0.712);
+    border-radius: 4px;
+    width: 100%;
+  }
 }
