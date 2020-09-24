@@ -37,11 +37,13 @@ function HomePage() {
               </div>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <img className="img" src={HeroImg} alt="Hero" />
+              <img className="img" src={HeroImg} alt={HeroImg} />
             </Grid>
             <div className="hero-form">
               <input className="input" type="text" placeholder="Email" />
-              <NavLink to="/register/slug" className="btn-hero">Sign Up - It's Free!</NavLink>
+              <NavLink to="/register/slug" className="btn-hero">
+                Sign Up - It's Free!
+              </NavLink>
             </div>
           </Grid>
         </div>

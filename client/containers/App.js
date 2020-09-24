@@ -40,7 +40,6 @@ class App extends React.Component {
 
 
   render() {
-    console.log(this.state.token, "app token");
     const { token } = this.state
     return (
       <Switch>

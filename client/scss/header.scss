@@ -3,9 +3,75 @@
   z-index: 999;
   width: 100%;
   padding: 1rem 0;
-  background: linear-gradient(to right, #277ac0, #2879BF, #326cc3);
+  background: linear-gradient(to right, #277ac0, #2879bf, #326cc3);
   .header-container {
     width: 97%;
     margin: 0 auto;
+  }
+}
+
+.autHeader {
+  background: linear-gradient(to right, #277ac0, #2879bf, #326cc3);
+  display: flex;
+  max-height: 2.5rem;
+  overflow: hidden;
+  padding: 0.3rem;
+  .authHeader-left-icons {
+    display: flex;
+    justify-content: flex-start;
+    flex-grow: 1;
+  }
+  .authHeader-logo {
+    display: block;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    top: 5px;
+    .authHeader-logo-left {
+      background: url(https://a.trellocdn.com/prgb/dist/images/header-loading-logo.d73159084f5122775d4d.gif);
+      background-size: 18px 18px;
+      display: inline-block;
+      opacity: 0;
+      height: 18px;
+      right: 59px;
+      position: absolute;
+      top: 6px;
+      width: 18px;
+    }
+    .authHeader-logo-right {
+      background: url(https://a.trellocdn.com/prgb/dist/images/header-logo-2x.01ef898811a879595cea.png);
+      background-position: 100% 0;
+      background-repeat: no-repeat;
+      background-size: 80px 30px;
+      cursor: pointer;
+      display: inline-block;
+      height: 30px;
+      width: 80px;
+      opacity: 0.5;
+    }
+  }
+  .authHeader-right-icons {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+  .authHeader-icon-bg {
+    cursor: pointer;
+    margin-right: 0.25rem;
+    background-color: hsla(0, 0%, 100%, 0.3);
+    height: 2rem;
+    width: 2rem;
+    border-radius: 0.2rem;
+    display: grid;
+    place-items: center;
+  }
+  .authHeader-icon-boards {
+    display: flex;
+    width: auto;
+    font-weight: 400;
+    span {
+      padding: 0 0.6rem;
+      font: 1rem;
+    }
   }
 }
