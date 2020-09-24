@@ -8,8 +8,8 @@ import DashboardOutlinedIcon from "@material-ui/icons/DashboardOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import { NavLink } from "react-router-dom";
-
 import { withStyles, fade } from "@material-ui/core/styles";
+import AuthHomePage from "./AuthHomePage";
 
 const styles = (theme) => ({
   root: {
@@ -60,59 +60,64 @@ class AuthHeader extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.root}>
-        <div className="autHeader">
-          <div className="authHeader-left-icons">
-            <div className="authHeader-icon-bg">
-              <AppsIcon style={{ fontSize: 18 }} />
-            </div>
-            <div className="authHeader-icon-bg">
-              <HomeIcon style={{ fontSize: 18 }} />
-            </div>
-            <div className="authHeader-icon-bg authHeader-icon-boards">
-              <DashboardOutlinedIcon style={{ fontSize: 18 }} />
-              <span>Boards</span>
-            </div>
-            <div className="search-icon">
-              <div className={classes.search}>
-                <div className={classes.searchIcon}>
-                  <SearchIcon style={{ fontSize: 18 }} />
+      <div>
+        <div className={classes.root}>
+          <div className="autHeader">
+            <div className="authHeader-left-icons">
+              <div className="authHeader-icon-bg">
+                <AppsIcon style={{ fontSize: 18 }} />
+              </div>
+              <div className="authHeader-icon-bg">
+                <HomeIcon style={{ fontSize: 18 }} />
+              </div>
+              <div className="authHeader-icon-bg authHeader-icon-boards">
+                <DashboardOutlinedIcon style={{ fontSize: 18 }} />
+                <span>Boards</span>
+              </div>
+              <div className="search-icon">
+                <div className={classes.search}>
+                  <div className={classes.searchIcon}>
+                    <SearchIcon style={{ fontSize: 18 }} />
+                  </div>
+                  <InputBase
+                    style={{ fontSize: 18 }}
+                    placeholder="Search…"
+                    classes={{
+                      root: classes.inputRoot,
+                      input: classes.inputInput,
+                    }}
+                    inputProps={{ "aria-label": "search" }}
+                  />
                 </div>
-                <InputBase
-                  style={{ fontSize: 18 }}
-                  placeholder="Search…"
-                  classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput,
-                  }}
-                  inputProps={{ "aria-label": "search" }}
-                />
+              </div>
+              <div
+                className="only-search-icon authHeader-icon-bg"
+                style={{ fontSize: 18 }}
+              >
+                <SearchIcon />
               </div>
             </div>
-            <div
-              className="only-search-icon authHeader-icon-bg"
-              style={{ fontSize: 18 }}
-            >
-              <SearchIcon />
+
+            <NavLink to="/" className="authHeader-logo">
+              <div className="authHeader-logo-left"></div>
+              <div className="authHeader-logo-right"></div>
+            </NavLink>
+
+            <div className="authHeader-right-icons">
+              <div className="authHeader-icon-bg">
+                <AddOutlinedIcon style={{ fontSize: 18 }} />
+              </div>
+              <div className="authHeader-icon-bg">
+                <ErrorOutlineRoundedIcon style={{ fontSize: 18 }} />
+              </div>
+              <div className="authHeader-icon-bg">
+                <NotificationsNoneRoundedIcon style={{ fontSize: 18 }} />
+              </div>
             </div>
           </div>
-
-          <NavLink to="/" className="authHeader-logo">
-            <div className="authHeader-logo-left"></div>
-            <div className="authHeader-logo-right"></div>
-          </NavLink>
-
-          <div className="authHeader-right-icons">
-            <div className="authHeader-icon-bg">
-              <AddOutlinedIcon style={{ fontSize: 18 }} />
-            </div>
-            <div className="authHeader-icon-bg">
-              <ErrorOutlineRoundedIcon style={{ fontSize: 18 }} />
-            </div>
-            <div className="authHeader-icon-bg">
-              <NotificationsNoneRoundedIcon style={{ fontSize: 18 }} />
-            </div>
-          </div>
+        </div>
+        <div>
+          <AuthHomePage />
         </div>
       </div>
     );
