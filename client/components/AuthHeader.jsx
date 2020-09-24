@@ -43,7 +43,7 @@ const styles = (theme) => ({
     color: "inherit",
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
+    padding: theme.spacing(0.6, 0, 0.6, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create("width"),
     width: "100%",
@@ -64,21 +64,22 @@ class AuthHeader extends React.Component {
         <div className="autHeader">
           <div className="authHeader-left-icons">
             <div className="authHeader-icon-bg">
-              <AppsIcon />
+              <AppsIcon style={{ fontSize: 18 }} />
             </div>
             <div className="authHeader-icon-bg">
-              <HomeIcon />
+              <HomeIcon style={{ fontSize: 18 }} />
             </div>
             <div className="authHeader-icon-bg authHeader-icon-boards">
-              <DashboardOutlinedIcon />
+              <DashboardOutlinedIcon style={{ fontSize: 18 }} />
               <span>Boards</span>
             </div>
-            <div>
+            <div className="search-icon">
               <div className={classes.search}>
                 <div className={classes.searchIcon}>
-                  <SearchIcon />
+                  <SearchIcon style={{ fontSize: 18 }} />
                 </div>
                 <InputBase
+                  style={{ fontSize: 18 }}
                   placeholder="Search…"
                   classes={{
                     root: classes.inputRoot,
@@ -87,6 +88,12 @@ class AuthHeader extends React.Component {
                   inputProps={{ "aria-label": "search" }}
                 />
               </div>
+            </div>
+            <div
+              className="only-search-icon authHeader-icon-bg"
+              style={{ fontSize: 18 }}
+            >
+              <SearchIcon />
             </div>
           </div>
 
@@ -97,13 +104,13 @@ class AuthHeader extends React.Component {
 
           <div className="authHeader-right-icons">
             <div className="authHeader-icon-bg">
-              <AddOutlinedIcon />
+              <AddOutlinedIcon style={{ fontSize: 18 }} />
             </div>
             <div className="authHeader-icon-bg">
-              <ErrorOutlineRoundedIcon />
+              <ErrorOutlineRoundedIcon style={{ fontSize: 18 }} />
             </div>
             <div className="authHeader-icon-bg">
-              <NotificationsNoneRoundedIcon />
+              <NotificationsNoneRoundedIcon style={{ fontSize: 18 }} />
             </div>
           </div>
         </div>
