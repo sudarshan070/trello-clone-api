@@ -9,7 +9,6 @@ import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import { NavLink } from "react-router-dom";
 import { withStyles, fade } from "@material-ui/core/styles";
-import AuthHomePage from "./AuthHomePage";
 
 const styles = (theme) => ({
   root: {
@@ -115,9 +114,6 @@ class AuthHeader extends React.Component {
               </div>
             </div>
           </div>
-        </div>
-        <div>
-          <AuthHomePage />
         </div>
       </div>
     );

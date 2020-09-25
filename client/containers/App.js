@@ -15,6 +15,9 @@ import Login from "../components/Login";
 import SignUpSlug from '../components/SignUpSlug';
 import AuthHeader from "../components/AuthHeader"
 import { getCurrentUser, noToken } from '../actions';
+import Error from '../components/Error';
+import AuthHomePage from '../components/AuthHomePage';
+import Loader from '../components/Loader'
 
 
 
@@ -22,7 +25,6 @@ class App extends React.Component {
   state = {
     token: "",
   }
-
 
   verifyLogin = () => {
     var token = localStorage.getItem("token") || ""
@@ -38,7 +40,6 @@ class App extends React.Component {
     this.verifyLogin()
   }
 
-
   render() {
     const { token } = this.state
     return (
@@ -46,12 +47,17 @@ class App extends React.Component {
         <>
           {
             token ?
-              <Route exact path="/" component={AuthHeader} /> :
+              <>
+                <Route exact path="/" component={AuthHome} />
+                <Route path="/login" component={Login} />
+                {/* <Route exact component={Error} /> */}
+              </> :
               <>
                 <Route exact path="/" component={NonAuthHome} />
                 <Route path="/signUp" component={SignUp} />
                 <Route path="/register/slug" component={SignUpSlug} />
                 <Route path="/login" component={Login} />
+                {/* <Route exact component={Error} /> */}
               </>
           }
         </>
@@ -67,7 +73,15 @@ const NonAuthHome = () => (
   </>
 )
 
+const AuthHome = () => (
+  <>
+    <AuthHeader />
+    <AuthHomePage />
+  </>
+)
+
 function mapState(state) {
+  console.log(state)
   return state
 }
 export default connect(mapState)(App);

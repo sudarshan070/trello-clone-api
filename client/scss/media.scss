@@ -40,4 +40,15 @@
       place-items: center;
     }
   }
+
+  // authHomePage
+
+  .authHomepage-left-right {
+    display: none;
+  }
+  .authHomePage-container {
+    .authHeader-center-container {
+      padding-left: 0;
+    }
+  }
 }
