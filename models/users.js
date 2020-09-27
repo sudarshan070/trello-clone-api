@@ -25,7 +25,15 @@ var userSchema = new Schema({
     },
     image: {
         type: String
-    }
+    }, 
+    teamId:[{
+        type:Schema.Types.ObjectId,
+        ref:"Team"
+    }],
+    boardId:[{
+        type:Schema.Types.ObjectId,
+        ref:"Board"
+    }]
 }, { timestamps: true })
 
 userSchema.pre("save", async function (next) {

@@ -35,8 +35,8 @@ let teamSchema = new Schema({
 teamSchema.pre('save', async function (next) {
     try {
         if (this.name) {
-            var slugName = slug(this.name, { lower: true })
-            this.slug = slugName;
+            var slugTeamName = slug(this.name, { lower: true })
+            this.slug = slugTeamName;
         }
     } catch (error) {
         next(error)

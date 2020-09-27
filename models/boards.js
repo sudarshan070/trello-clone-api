@@ -1,7 +1,6 @@
 var mongoose = require("mongoose")
 var slug = require("slug")
 
-var User = require('./users')
 var Schema = mongoose.Schema
 
 let boardSchema = new Schema({
@@ -25,7 +24,11 @@ let boardSchema = new Schema({
     members: [{
         type: Schema.Types.ObjectId,
         ref: "User"
-    }]
+    }],
+    isPublic: {
+        type: Boolean,
+        default: false
+    }
 }, { timestamps: true })
 
 boardSchema.pre('save', async function (next) {
