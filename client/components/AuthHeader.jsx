@@ -96,11 +96,12 @@ class AuthHeader extends React.Component {
                 <SearchIcon />
               </div>
             </div>
-
-            <NavLink to="/" className="authHeader-logo">
-              <div className="authHeader-logo-left"></div>
-              <div className="authHeader-logo-right"></div>
-            </NavLink>
+            <div>
+              <div  className="authHeader-logo">
+                <div className="authHeader-logo-left"></div>
+                <div className="authHeader-logo-right"></div>
+              </div>
+            </div>
 
             <div className="authHeader-right-icons">
               <div className="authHeader-icon-bg">

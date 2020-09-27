@@ -1,6 +1,7 @@
 var mongoose = require("mongoose")
 var slug = require("slug")
 
+var User = require('./users')
 var Schema = mongoose.Schema
 
 let boardSchema = new Schema({
@@ -14,11 +15,17 @@ let boardSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     },
-    teamId: [{ type: Schema.Types.ObjectId, ref: "Team" }],
+    teamId: {
+        type: Schema.Types.ObjectId,
+        ref: "Team"
+    },
     images: {
         type: String
     },
-    members: [{ type: Schema.Types.ObjectId, ref: "User" }]
+    members: [{
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }]
 }, { timestamps: true })
 
 boardSchema.pre('save', async function (next) {

@@ -14,7 +14,11 @@ function AuthHomePage() {
           <div>
             <ul className="authHomePage-nav">
               <li>
-                <NavLink to="/" className="authHomePage-link authHomePage-hover">
+                <NavLink
+                  to="/"
+                  className="authHomePage-link authHomePage-hover"
+                  activeClassName="active"
+                >
                   <DashboardOutlinedIcon
                     style={{
                       display: "block",
@@ -28,7 +32,11 @@ function AuthHomePage() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/" className="authHomePage-link authHomePage-hover">
+                <NavLink
+                  to="/"
+                  className="authHomePage-link authHomePage-hover"
+                  activeClassName="active"
+                >
                   <CollectionsBookmarkOutlinedIcon
                     style={{
                       display: "block",
@@ -42,7 +50,11 @@ function AuthHomePage() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/" className="authHomePage-link authHomePage-hover">
+                <NavLink
+                  to="/"
+                  className="authHomePage-link authHomePage-hover"
+                  activeClassName="active"
+                >
                   <TimelineIcon
                     style={{
                       display: "block",
@@ -63,7 +75,11 @@ function AuthHomePage() {
             </div>
 
             <div className="authHomePage-addBoard">
-              <NavLink to="/" className="authHomePage-link authHomePage-hover">
+              <NavLink
+                to="/"
+                className="authHomePage-link authHomePage-hover"
+                activeClassName="active"
+              >
                 <AddOutlinedIcon
                   style={{
                     display: "block",
@@ -115,7 +131,11 @@ function AuthHomePage() {
               <h2>Links</h2>
             </div>
             <div className="authHomePage-addBoard">
-              <NavLink to="/" className="authHomePage-link authHomePage-hover">
+              <NavLink
+                to="/"
+                className="authHomePage-link authHomePage-hover"
+                activeClassName="active"
+              >
                 <AddOutlinedIcon
                   style={{
                     display: "block",

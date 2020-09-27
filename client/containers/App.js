@@ -22,26 +22,26 @@ import Loader from '../components/Loader'
 
 
 class App extends React.Component {
-  state = {
-    token: "",
+  constructor(props) {
+    super(props);
+    this.state = {
+      token: "",
+    }
   }
 
-  verifyLogin = () => {
+
+  componentDidMount() {
     var token = localStorage.getItem("token") || ""
     if (token) {
-      this.setState({ token: token })
+      this.setState({ token })
       this.props.dispatch(getCurrentUser())
     } else {
       this.props.dispatch(noToken())
     }
   }
 
-  componentDidMount() {
-    this.verifyLogin()
-  }
-
   render() {
-    const { token } = this.state
+    const { token } = this.props.currentUser
     return (
       <Switch>
         <>
@@ -50,14 +50,14 @@ class App extends React.Component {
               <>
                 <Route exact path="/" component={AuthHome} />
                 <Route path="/login" component={Login} />
-                {/* <Route exact component={Error} /> */}
+                {/* <Route path="/*" component={Error} /> */}
               </> :
               <>
                 <Route exact path="/" component={NonAuthHome} />
                 <Route path="/signUp" component={SignUp} />
                 <Route path="/register/slug" component={SignUpSlug} />
                 <Route path="/login" component={Login} />
-                {/* <Route exact component={Error} /> */}
+                {/* <Route path="/*" component={Error} /> */}
               </>
           }
         </>
@@ -81,7 +81,6 @@ const AuthHome = () => (
 )
 
 function mapState(state) {
-  console.log(state)
   return state
 }
 export default connect(mapState)(App);
