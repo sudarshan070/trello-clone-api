@@ -51,7 +51,6 @@ router.put('/:slug', auth.verifyToken, async (req, res, next) => {
 // get team
 router.get('/', auth.verifyToken, async (req, res, next) => {
     try {
-        console.log(req.user)
         var team = await User.findById(req.user.userId)
         res.json({ team: team.teamId })
     } catch (error) {
@@ -59,5 +58,25 @@ router.get('/', auth.verifyToken, async (req, res, next) => {
     }
 })
 
+
+// delete team
+router.delete('/:slug', auth.verifyToken, async (req, res, next) => {
+    try {
+        var team = await Team.findOne({ slug: req.params.slug })
+        if (team.owner == req.user.userId) {
+            var board = await Board.updateMany(
+                { teamId: team.id },
+                { teamId: null },
+                { new: true }
+            )
+            team = await Team.findByIdAndDelete(team.id)
+            res.json({
+                success: 'team deleted successfully '
+            })
+        }
+    } catch (error) {
+        next(error)
+    }
+})
 
 module.exports = router
