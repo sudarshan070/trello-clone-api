@@ -1,4 +1,5 @@
 const express = require('express');
+const slug = require('slug');
 const router = express.Router();
 const auth = require('../../middleware/auth')
 const Board = require('../../models/boards')
@@ -51,5 +52,18 @@ router.get('/:slug', auth.verifyToken, async (req, res, next) => {
     }
 })
 
+// update board
+router.put('/:slug', auth.verifyToken, async (req, res, next) => {
+    try {
+        req.body.board.slug = slug(req.body.board.name, { lower: true })
+        var board = await Board.findOneAndUpdate({ slug: req.params.slug },
+            req.body.board,
+            { new: true }
+        )
+        res.json({ board })
+    } catch (error) {
+        next(error)
+    }
+})
 
 module.exports = router
