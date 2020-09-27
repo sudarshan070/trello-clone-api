@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+var slug = require("slug")
 var Schema = mongoose.Schema
 
 let teamSchema = new Schema({
