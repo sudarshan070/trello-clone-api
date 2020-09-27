@@ -66,4 +66,19 @@ router.put('/:slug', auth.verifyToken, async (req, res, next) => {
     }
 })
 
+// delete board
+router.delete("/:slug", auth.verifyToken, async (req, res, next) => {
+    try {
+        var board = await Board.findOne({ slug: req.params.slug })
+        if (board.owner == req.user.userId) {
+            board = await Board.findOneAndDelete({ slug: req.params.slug })
+            res.json({
+                success: 'board deleted successfully '
+            })
+        }
+    } catch (error) {
+        next(error)
+    }
+})
+
 module.exports = router
