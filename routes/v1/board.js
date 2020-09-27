@@ -41,6 +41,15 @@ router.post("/", auth.verifyToken, async (req, res, next) => {
 })
 
 
+// get single board
+router.get('/:slug', auth.verifyToken, async (req, res, next) => {
+    try {
+        var board = await Board.findOne({ slug: req.params.slug })
+        res.json({ board })
+    } catch (error) {
+        next(error)
+    }
+})
 
 
 module.exports = router
