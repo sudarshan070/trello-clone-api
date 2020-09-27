@@ -5,11 +5,21 @@ const Board = require('../../models/boards')
 const User = require('../../models/users')
 
 
+// get all board
+router.get('/', auth.verifyToken, async (req, res, next) => {
+    try {
+        var board = await Board.find({})
+        res.json({ board })
+    } catch (error) {
+        next(error)
+    }
+})
+
 // create  board
 router.post("/", auth.verifyToken, async (req, res, next) => {
     try {
-        console.log(req.body.board, "req.body.board")
-        console.log(req.user, 'req.user')
+        // console.log(req.body.board, "req.body.board")
+        // console.log(req.user, 'req.user')
         req.body.board.owner = req.user.userId
 
         var board = await Board.create(req.body.board)
@@ -19,7 +29,6 @@ router.post("/", auth.verifyToken, async (req, res, next) => {
             { $addToSet: { boardId: board.id } },
             { new: true }
         )
-        // console.log(user, "user is here")
         res.status(201).json({
             board: {
                 name: board.name,
@@ -30,6 +39,8 @@ router.post("/", auth.verifyToken, async (req, res, next) => {
         next(error)
     }
 })
+
+
 
 
 module.exports = router
