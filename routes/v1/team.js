@@ -48,4 +48,16 @@ router.put('/:slug', auth.verifyToken, async (req, res, next) => {
     }
 })
 
+// get team
+router.get('/', auth.verifyToken, async (req, res, next) => {
+    try {
+        console.log(req.user)
+        var team = await User.findById(req.user.userId)
+        res.json({ team: team.teamId })
+    } catch (error) {
+        next(error)
+    }
+})
+
+
 module.exports = router

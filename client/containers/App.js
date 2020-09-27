@@ -81,6 +81,7 @@ const AuthHome = () => (
 )
 
 function mapState(state) {
+  console.log(state)
   return state
 }
 export default connect(mapState)(App);
