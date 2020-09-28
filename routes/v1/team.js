@@ -84,7 +84,6 @@ router.delete('/:slug', auth.verifyToken, async (req, res, next) => {
 router.post('/:slug/member/:username', auth.verifyToken, async (req, res, next) => {
     try {
         let username = req.params.username
-        console.log(username, "username");
         let slug = req.params.slug
         var user = await User.findOne({ username })
         var team = await Team.findOne({ slug })
@@ -100,6 +99,30 @@ router.post('/:slug/member/:username', auth.verifyToken, async (req, res, next) 
                 { new: true }
             )
             res.status(201).json({ team })
+        }
+    } catch (error) {
+        next(error)
+    }
+})
+
+router.delete('/:slug/member/:username', auth.verifyToken, async (req, res, next) => {
+    try {
+        var username = req.params.username
+        var slug = req.params.slug
+        var user = await User.findOne({ username })
+        var team = await Team.findOne({ slug })
+        if (team.owner == req.user.userId || user.id == req.user.userId) {
+            team = await Team.findByIdAndUpdate(
+                team.id,
+                { $pull: { members: user.id } },
+                { new: true }
+            ).populate("members")
+            user = await User.findByIdAndUpdate(
+                user.id,
+                { $pull: { teamId: team.id } },
+                { new: true }
+            )
+            res.status(201).json({ success: "Remove member from list" })
         }
     } catch (error) {
         next(error)
