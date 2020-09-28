@@ -59,6 +59,19 @@ router.get('/', auth.verifyToken, async (req, res, next) => {
 })
 
 
+// get single team
+
+router.get('/:slug', auth.verifyToken, async (req, res, next) => {
+    try {
+        let slug = req.params.slug
+        var team = await Team.findOne({ slug }).populate("owner members boardId")
+        console.log(team);
+        res.json(team)
+    } catch (error) {
+        next(error)
+    }
+})
+
 // delete team
 router.delete('/:slug', auth.verifyToken, async (req, res, next) => {
     try {
