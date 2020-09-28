@@ -14,10 +14,10 @@ let boardSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     },
-    teamId: {
+    teamId: [{
         type: Schema.Types.ObjectId,
         ref: "Team"
-    },
+    }],
     images: {
         type: String
     },
