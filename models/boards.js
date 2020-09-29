@@ -28,7 +28,11 @@ let boardSchema = new Schema({
     isPublic: {
         type: Boolean,
         default: false
-    }
+    },
+    lists: [{
+        type: Schema.Types.ObjectId,
+        ref: "List"
+    }]
 }, { timestamps: true })
 
 boardSchema.pre('save', async function (next) {
