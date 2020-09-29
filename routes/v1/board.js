@@ -22,17 +22,27 @@ router.post("/", auth.verifyToken, async (req, res, next) => {
     try {
         req.body.board.owner = req.user.userId
         var board = await Board.create(req.body.board)
-        var user = await User.findByIdAndUpdate(
-            req.user.userId,
-            { $addToSet: { boardId: board.id } },
-            { new: true }
-        )
-        res.status(201).json({
-            board: {
-                name: board.name,
-                slug: board.slug,
+        if (board) {
+            var user = await User.findByIdAndUpdate(
+                req.user.userId,
+                { $addToSet: { boardId: board.id } },
+                { new: true }
+            )
+            if (board.teamId) {
+                var team = await Team.findByIdAndUpdate(
+                    board.teamId,
+                    { $addToSet: { boardId: board.id } },
+                    { new: true }
+                )
             }
-        })
+            res.status(201).json({
+                board: {
+                    name: board.name,
+                    slug: board.slug,
+                }
+            })
+        }
+
     } catch (error) {
         next(error)
     }
