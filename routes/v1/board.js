@@ -5,6 +5,7 @@ const auth = require('../../middleware/auth')
 const Board = require('../../models/boards')
 const User = require('../../models/users')
 const Team = require('../../models/team')
+const List = require('../../models/list')
 
 
 // get all board
