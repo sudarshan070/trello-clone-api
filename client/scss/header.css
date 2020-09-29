@@ -1,0 +1,14 @@
+.header {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  padding: 1rem 0;
+  background: -webkit-gradient(linear, left top, right top, from(#277ac0), color-stop(#2879BF), to(#326cc3));
+  background: linear-gradient(to right, #277ac0, #2879BF, #326cc3);
+}
+
+.header .header-container {
+  width: 97%;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,422 @@
+.hero {
+  padding-top: 4.2rem;
+  background: -webkit-gradient(linear, left top, right top, from(#277ac0), color-stop(#2879bf), to(#326cc3));
+  background: linear-gradient(to right, #277ac0, #2879bf, #326cc3);
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+}
+
+.hero .hero-heading {
+  padding-top: 1rem;
+  line-height: 1.1;
+  color: #fff;
+  padding-right: 2rem;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-family: "Charlie Display", sans-serif;
+  font-weight: 500;
+}
+
+.hero h6 {
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.5;
+  word-spacing: 3.5px;
+}
+
+.input {
+  -webkit-box-flex: 5;
+      -ms-flex-positive: 5;
+          flex-grow: 5;
+  min-width: 0;
+  width: 360px;
+  border-radius: 0.3rem;
+  line-height: 43px;
+  padding: 4px;
+  padding-left: 16px;
+  border-color: white;
+  border-style: solid;
+  font-size: 18px;
+}
+
+.btn-hero {
+  padding: 0.5rem 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: #fff;
+  background-color: #61bd4f;
+  border-color: #61bd4f;
+  border-radius: 0.3rem;
+  margin-left: 8px;
+}
+
+.hero-form {
+  padding: 1.2rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .hero .hero-heading {
+    padding: 0;
+  }
+  .hero h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .hero h6 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  .hero-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: 14px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .input {
+    display: none;
+  }
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.header {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  padding: 1rem 0;
+  background: -webkit-gradient(linear, left top, right top, from(#277ac0), color-stop(#2879BF), to(#326cc3));
+  background: linear-gradient(to right, #277ac0, #2879BF, #326cc3);
+}
+
+.header .header-container {
+  width: 97%;
+  margin: 0 auto;
+}
+
+.container {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.flex-sb {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.bg-white {
+  background: #ffffff;
+}
+
+.btn-sm {
+  padding: 0.3rem 0.6rem;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+}
+
+Link {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text-blue {
+  color: #0079bf;
+}
+
+.col-48 {
+  width: 48%;
+  margin: 0 auto;
+}
+
+.paddingTop-3rem {
+  padding-top: 3rem;
+}
+
+.align-item-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.signUp-form {
+  background: #f9fafc;
+}
+
+.signUp-form .form-wrapper {
+  width: 400px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+.signUp-form .form-wrapper .form-box {
+  background-color: #ffffff;
+  border-radius: 3px;
+  padding: 25px 40px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 10px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0 0 10px;
+}
+
+.signUp-form .form-wrapper .form-box h2 {
+  text-align: center;
+  color: #5e6c84;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  line-height: 28px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.signUp-form .form-wrapper .form-box .signUp-form-input {
+  font-size: 14px;
+  background-color: #fafbfc;
+  border: 2px solid #dfe1e6;
+  border-radius: 3px;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.signUp-form .form-wrapper .form-box p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  line-height: 16px;
+  color: #5e6c84;
+}
+
+.signUp-form .form-wrapper .form-box .or {
+  margin: 12px 0;
+  text-align: center;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.signUp-form .form-wrapper .form-box hr {
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1rem 0;
+}
+
+.signUp-form .form-wrapper .form-box .login-link {
+  text-align: center;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.signUp-form .form-wrapper .form-box .login-link .signUp-link {
+  color: #0052cc;
+}
+
+.signUp-logo {
+  width: 130px;
+  margin: 0 auto;
+  height: 43px;
+  padding-top: 40px;
+  margin-bottom: 40px;
+}
+
+.signUp-logo img {
+  width: 100%;
+}
+
+.form-btn {
+  width: 99%;
+  margin: 0 auto;
+  border-color: transparent;
+  text-align: center;
+  border-radius: 3px;
+  height: 39px;
+  padding-top: 0;
+  margin-bottom: 12px;
+}
+
+.auth-btn {
+  background: #fff;
+  color: rgba(0, 0, 0, 0.54);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px 0;
+          box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px 0;
+}
+
+.login-btn {
+  background: #5aac44;
+  color: #ffffff;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px 0;
+          box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px 0;
+}
+
+.login-form-input {
+  margin-bottom: 12px;
+  font-weight: 300;
+  opacity: 0.7;
+}
+/*# sourceMappingURL=index.css.map */

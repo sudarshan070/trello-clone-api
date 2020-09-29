@@ -1,0 +1,70 @@
+.container {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.flex-sb {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.bg-white {
+  background: #ffffff;
+}
+
+.btn-sm {
+  padding: 0.3rem 0.6rem;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+}
+
+Link {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text-blue {
+  color: #0079bf;
+}
+
+.col-48 {
+  width: 48%;
+  margin: 0 auto;
+}
+
+.paddingTop-3rem {
+  padding-top: 3rem;
+}
+
+.align-item-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+/*# sourceMappingURL=common.css.map */
