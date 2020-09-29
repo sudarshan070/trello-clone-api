@@ -15,43 +15,49 @@ import Login from "../components/Login";
 import SignUpSlug from '../components/SignUpSlug';
 import AuthHeader from "../components/AuthHeader"
 import { getCurrentUser, noToken } from '../actions';
+import Error from '../components/Error';
+import AuthHomePage from '../components/AuthHomePage';
+import Loader from '../components/Loader'
 
 
 
 class App extends React.Component {
-  state = {
-    token: "",
+  constructor(props) {
+    super(props);
+    this.state = {
+      token: "",
+    }
   }
 
 
-  verifyLogin = () => {
+  componentDidMount() {
     var token = localStorage.getItem("token") || ""
     if (token) {
-      this.setState({ token: token })
+      this.setState({ token })
       this.props.dispatch(getCurrentUser())
     } else {
       this.props.dispatch(noToken())
     }
   }
 
-  componentDidMount() {
-    this.verifyLogin()
-  }
-
-
   render() {
-    const { token } = this.state
+    const { token } = this.props.currentUser
     return (
       <Switch>
         <>
           {
             token ?
-              <Route exact path="/" component={AuthHeader} /> :
+              <>
+                <Route exact path="/" component={AuthHome} />
+                <Route path="/login" component={Login} />
+                {/* <Route path="/*" component={Error} /> */}
+              </> :
               <>
                 <Route exact path="/" component={NonAuthHome} />
                 <Route path="/signUp" component={SignUp} />
                 <Route path="/register/slug" component={SignUpSlug} />
                 <Route path="/login" component={Login} />
+                {/* <Route path="/*" component={Error} /> */}
               </>
           }
         </>
@@ -67,7 +73,15 @@ const NonAuthHome = () => (
   </>
 )
 
+const AuthHome = () => (
+  <>
+    <AuthHeader />
+    <AuthHomePage />
+  </>
+)
+
 function mapState(state) {
+  console.log(state)
   return state
 }
 export default connect(mapState)(App);

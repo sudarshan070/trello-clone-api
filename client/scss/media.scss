@@ -1,4 +1,28 @@
 @media screen and (max-width: 760px) {
+  // non auth home page
+  .hero .hero-heading {
+    padding: 0;
+  }
+  .hero h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .hero h6 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  .hero-form {
+    display: flex;
+    margin-left: 14px;
+    justify-content: center;
+  }
+  .input {
+    display: none;
+  }
+
+  // auth header
+
   .autHeader {
     .authHeader-icon-boards {
       width: 2rem;
@@ -14,6 +38,17 @@
     .only-search-icon {
       display: grid;
       place-items: center;
+    }
+  }
+
+  // authHomePage
+
+  .authHomepage-left-right {
+    display: none;
+  }
+  .authHomePage-container {
+    .authHeader-center-container {
+      padding-left: 0;
     }
   }
 }

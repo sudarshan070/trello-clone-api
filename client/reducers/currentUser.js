@@ -1,44 +1,22 @@
 import { USER_LOGIN_FAILED, USER_LOGIN_SUCCESS, LOG_OUT, NO_TOKEN } from "../type/type"
 import { PayloadTooLarge } from "http-errors";
+import { token } from "morgan";
 
 const initialState = {
   user: null,
-  token: localStorage.getItem('authToken') || '',
+  token: localStorage.getItem('token') || '',
   isAuthInProgress: true
 }
 
 function currentUser(state = initialState, action) {
   switch (action.type) {
-    // case USER_LOGIN_SUCCESS:
-    //   return {
-    //     ...state,
-    //     user: action.data.user,
-    //     isAuthInProgress: false
-    //   }
-
-    // case USER_LOGIN_FAILED:
-    //   localStorage.clear();
-    //   return {
-    //     ...state,
-    //     isAuthInProgress: false,
-    //     user: null
-    //   }
-
-    // case LOG_OUT:
-    // case NO_TOKEN:
-    //   return {
-    //     ...state,
-    //     user: null,
-    //     isAuthInProgress: false,
-    //     token: ''
-    //   }
-    // default:
-    //   return state;
     case USER_LOGIN_SUCCESS:
       return {
         ...state,
         user: action.payload,
-        isAuthInProgress: false
+        isAuthInProgress: false,
+        token: action.payload.token
+
       }
     default:
       return state
