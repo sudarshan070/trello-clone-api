@@ -50,4 +50,22 @@ router.put('/:boardSlug/update/:slug', auth.verifyToken, async (req, res, next) 
     }
 })
 
+
+
+router.delete('/:boardSlug/delete/:listSlug', auth.verifyToken, async (req, res, next) => {
+    try {
+        var list = await List.findOneAndDelete({ slug: req.params.listSlug })
+        let board = await Board.findOneAndUpdate(
+            { slug: req.params.slug },
+            {
+                $pull: { lists: list.id },
+            },
+            { new: true }
+        )
+        res.json({ success: "List deleted successfully" })
+    } catch (error) {
+        next(error)
+    }
+})
+
 module.exports = router
