@@ -79,7 +79,8 @@ router.delete("/:slug", auth.verifyToken, async (req, res, next) => {
     try {
         var board = await Board.findOne({ slug: req.params.slug })
         if (board.owner == req.user.userId) {
-            board = await Board.findOneAndDelete({ slug: req.params.slug })
+            var list = await List.deleteMany({ boardId: board.id })
+            board = await Board.findByIdAndDelete(board.id)
             res.json({
                 success: 'board deleted successfully '
             })
