@@ -21,7 +21,7 @@ let boardSchema = new Schema({
     images: {
         type: String
     },
-    members: [{
+    memberId: [{
         type: Schema.Types.ObjectId,
         ref: "User"
     }],
@@ -29,7 +29,7 @@ let boardSchema = new Schema({
         type: Boolean,
         default: false
     },
-    lists: [{
+    listId: [{
         type: Schema.Types.ObjectId,
         ref: "List"
     }]

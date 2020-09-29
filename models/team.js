@@ -10,7 +10,7 @@ let teamSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     },
-    members: [{
+    memberId: [{
         type: Schema.Types.ObjectId,
         ref: "User"
     }],
