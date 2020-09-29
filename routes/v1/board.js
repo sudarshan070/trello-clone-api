@@ -93,10 +93,11 @@ router.delete("/:slug", auth.verifyToken, async (req, res, next) => {
 
 
 // add team
-router.post('/:slug/team/:slug', auth.verifyToken, async (req, res, next) => {
+router.post('/:boardSlug/team/:teamSlug', auth.verifyToken, async (req, res, next) => {
     try {
-        var board = await Board.findOne({ slug: req.params.slug })
-        var team = await Team.findOne({ slug: req.params.slug })
+        var board = await Board.findOne({ slug: req.params.boardSlug })
+        console.log(board);
+        var team = await Team.findOne({ slug: req.params.teamSlug })
         if (board.owner == req.user.userId) {
             board = await Board.findByIdAndUpdate(
                 board.id,
