@@ -32,7 +32,6 @@ router.post("/:boardSlug/create", auth.verifyToken, async (req, res, next) => {
     }
 })
 
-
 router.put('/:boardSlug/update/:slug', auth.verifyToken, async (req, res, next) => {
     try {
         var board = await Board.findOne({ slug: req.params.slug })
@@ -49,8 +48,6 @@ router.put('/:boardSlug/update/:slug', auth.verifyToken, async (req, res, next) 
         next(error)
     }
 })
-
-
 
 router.delete('/:boardSlug/delete/:listSlug', auth.verifyToken, async (req, res, next) => {
     try {
