@@ -12,10 +12,8 @@ var auth = require('../../middleware/auth')
 router.post("/", auth.verifyToken, async (req, res, next) => {
     try {
         req.body.team.owner = req.user.userId
-        req.body.team.member = [req.user.userId]
-
+        req.body.team.memberId = [req.user.userId]
         var team = await Team.create(req.body.team)
-
         var user = await User.findByIdAndUpdate(
             req.user.userId,
             { $addToSet: { teamId: team.id } },
